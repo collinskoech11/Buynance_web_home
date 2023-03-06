@@ -1,6 +1,7 @@
 import React from 'react';
 import bit from "../assets/bit.png";
 import graph from "../assets/graph.png";
+import Login from '../AuthLogic';
 
 
 
@@ -11,7 +12,7 @@ const CoverComp = () => {
 			<div className="cover_top">
 				<h1>Buy crypto conveniently via mpesa</h1>
 				<p>Join the Kenya's largest crypto exchange. Designed for Kenyans</p>
-				<button className="yellow_button">Register Now</button>
+				<Login/>
 			</div>
 
 			<div className="cover_middle cover_grid">	

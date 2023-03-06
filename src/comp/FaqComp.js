@@ -1,11 +1,11 @@
-import React,{useState} from 'react'
+import React from 'react'
 
 import FaqChild from "./FaqChild";
 
 const FaqComp = () => {
 
-	const [data, set_data] = useState([])
-	set_data([
+
+	const data = [
 
 		{"key:":1, "ques":"How to Complete Identity Verification?" ,"ans":"Verify your Buynance account with any of the supported documents by following this guide."},
 		{"key:":2,"ques":"How to Buy Cryptocurrency on BUynance P2P?" ,"ans":"You can now buy cryptocurrencies using Indian Rupees with 0 transaction fees on Buynance P2P! Follow this guide for Weband App."},
@@ -13,7 +13,7 @@ const FaqComp = () => {
 		{"key:":4,"ques":"How to Complete Identity Verification?" ,"ans":"Verify your Buynance account with any of the supported documents by following this guide."},
 		{"key:":5,"ques":"How to Complete Identity Verification?" ,"ans":"Verify your Buynance account with any of the supported documents by following this guide."},
 
-		])
+		]
 
 
 

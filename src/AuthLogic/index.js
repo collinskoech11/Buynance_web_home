@@ -12,6 +12,7 @@ function Login() {
         <button
           className="grey_button yellow_button"
           onClick={() => loginWithRedirect()}
+          style={{border:"1px solid yellow", color:"yellow"}}
         >
           Login
         </button>
@@ -30,6 +31,7 @@ function Login() {
     <>
       <button
         className="grey_button yellow_button"
+        style={{border:"1px solid yellow", color:"yellow"}}
       >
         {user_info.given_name}
       </button>
