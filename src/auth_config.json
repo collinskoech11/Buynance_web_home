@@ -1,0 +1,5 @@
+{
+    "domain": "dev-vw14px5fvcyy1y3a.us.auth0.com",
+    "clientId": "mgeeEo6acXdqfWH3laVxdGaJJzM9Wqux",
+    "audience": "{YOUR AUTH0 API_IDENTIFIER}"
+  }
