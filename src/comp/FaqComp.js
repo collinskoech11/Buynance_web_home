@@ -1,6 +1,7 @@
 import React from 'react'
 
 import FaqChild from "./FaqChild";
+import Login from '../AuthLogic';
 
 const FaqComp = () => {
 
@@ -43,9 +44,7 @@ const FaqComp = () => {
 				<h1>Start Trading Now</h1>
 
 				<div className="row_faq">
-					<button className="bg_yellow">Register Now</button>
-
-					<button >Trade Now</button>
+					<Login/>
 				</div>
 			</div>
 

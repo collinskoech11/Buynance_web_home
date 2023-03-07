@@ -23,8 +23,8 @@ const ProductComp = () => {
 			<div className="blog_grid">
 
 				<div className="pro_grid_comp">
-					<h1>Trade seamlessly with Binance Spot</h1>
-					<p>Trade more than 740 cryptocurrency and fiat pairs, including Bitcoin, Ethereum, and BNB with Binance Spot. Experience seamless trading with the largest crypto exchange by trade volume. Our matching system is capable of processing up to 1.4 million orders per second.</p>
+					<h1>Trade seamlessly with Buynance </h1>
+					<p>Trade 5 cryptocurrency and fiat pairs, including Bitcoin, Ethereum, and BNB with Binance Spot. Experience seamless trading with the largest crypto exchange by trade volume. Our matching system is capable of processing multiple orders per second.</p>
 					<button>Trade Now </button>
 				</div>
 				<div className="pro_grid_comp">

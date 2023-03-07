@@ -12,7 +12,7 @@ const BlogComp = () => {
 			<div className="blog_header">
 
 				<h1>Getting started</h1>
-				<p>Learn how to start trading cryptocurrency today.</p>
+				<p>Learn how to buy and sell crypto today.</p>
 
 				<div className="blog_filter">
 					<button>Buy Crypto</button>

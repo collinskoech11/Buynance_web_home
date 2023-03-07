@@ -12,7 +12,7 @@ function Login() {
         <button
           className="grey_button yellow_button"
           onClick={() => loginWithRedirect()}
-          style={{border:"1px solid yellow", color:"yellow"}}
+          style={{ border: "1px solid #dea30d", color: "#dea30d" }}
         >
           Login
         </button>
@@ -22,22 +22,22 @@ function Login() {
       </>
     );
   }
-  const user_info = JSON.parse(localStorage.getItem('user'))
+  const user_info = JSON.parse(localStorage.getItem("user"));
   const logout_fx = () => {
-    localStorage.clear()
-    logout()
-  }
+    localStorage.clear();
+    logout();
+  };
   return (
     <>
       <button
         className="grey_button yellow_button"
-        style={{border:"1px solid yellow", color:"yellow"}}
+        style={{ border: "1px solid yellow", color: "yellow" }}
       >
         {user_info.given_name}
       </button>
       <button className="yellow_button " onClick={logout_fx}>
-          Log Out
-        </button>
+        Log Out
+      </button>
     </>
   );
 }

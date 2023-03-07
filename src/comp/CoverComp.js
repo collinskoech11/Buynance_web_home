@@ -1,11 +1,27 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import bit from "../assets/bit.png";
 import graph from "../assets/graph.png";
 import Login from '../AuthLogic';
-
-
+import axios from "axios"
 
 const CoverComp = () => {
+	const [coindata, setCoinData] = useState([])
+	const exchangeRate= 128.60;
+
+	const getData = () => {
+		axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=5&page=1&sparkline=false")
+		.then(res => {
+			const data = res.data;
+			setCoinData(data)
+			console.log(data)
+		})
+		.catch(err => {
+			console.log(err)
+		})
+	}
+	useEffect(() => {
+		getData()
+	},[])
 	return (
 		<div className="cover">
 			
@@ -16,101 +32,44 @@ const CoverComp = () => {
 			</div>
 
 			<div className="cover_middle cover_grid">	
-				<div className="grid_comp">
+			{coindata.map((item, index) => {
+				const uppercaseSymbol = item.symbol.toUpperCase()
+				const current_price = Math.ceil(item.current_price*exchangeRate)
+				let cstate;
+				if(item.market_cap_change_percentage_24h < 0){
+					cstate = "color_red"
+				} else {
+					cstate = "color_green"
+				}
+				const imageurl = item.image
+				return(
+					<div className="grid_comp">
 					<div className="comp_top">
+						<div style={{width:"50%", margin:"auto"}}><h3>{item.name}</h3></div>
 						<div className="comp_top_head">
-							<img src={bit} alt="bitcoin" />
+							<img src={imageurl} alt="bitcoin" />
 							<div>
-								<h2>BNB/BUSD</h2>
-								<p>Volume 7,03,35,229,734 BUSD</p>
+								<h2>{uppercaseSymbol}/KES</h2>
+								<p>Volume {item.total_volume} BUSD</p>
 							</div>
-							<p className="color_green">1.17%</p>
+							<p className={`${cstate}`}>{item.market_cap_change_percentage_24h}%</p>
 						</div>
 					</div>
 					<div className="comp_middle">
-						<h1 className="color_green">304.48 </h1>
-						<p>$304.41</p>
-					</div>
-
-					<div className="comp_bottom">
-						<img src={graph} alt="graph" />
+						<h3>Price : </h3>
+						<h1 className={`${cstate}`}>{current_price} KES</h1>
 						<div>
 							<img src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-right-01-512.png" alt="" />
 						</div>
 					</div>
-				</div>
 
-				<div className="grid_comp">
-					<div className="comp_top">
-						<div className="comp_top_head">
-							<img src="https://pbs.twimg.com/profile_images/1340063829347225600/fMUvnUG8_400x400.jpg" alt="bitcoin" />
-							<div>
-								<h2>GRT/BUSD</h2>
-								<p>Volume 7,03,35,229,734 BUSD</p>
-							</div>
-							<p className="color_green">2.1%</p>
-						</div>
-					</div>
-					<div className="comp_middle">
-						<h1 className="color_red">304.48 </h1>
-						<p>$304.41</p>
-					</div>
 					<div className="comp_bottom">
-						<img src={graph} alt="graph" />
-						<div>
-							<img src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-right-01-512.png" alt="" />
-						</div>
+						{/* <img src={graph} alt="graph" /> */}
+						
 					</div>
 				</div>
-
-				<div className="grid_comp">
-					<div className="comp_top">
-						<div className="comp_top_head">
-							<img src={bit} alt="bitcoin" />
-							<div>
-								<h2>DOT/BUSD</h2>
-								<p>Volume 7,03,35,229,734 BUSD</p>
-							</div>
-							<p className="color_green">1.17%</p>
-						</div>
-					</div>
-					<div className="comp_middle">
-						<h1 className="color_red">304.48 </h1>
-						<p>$304.41</p>
-					</div>
-					<div className="comp_bottom">
-						<img src={graph} alt="graph" />
-						<div>
-							<img src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-right-01-512.png" alt="" />
-						</div>
-					</div>
-				</div>
-
-				<div className="grid_comp">
-					<div className="comp_top">
-						<div className="comp_top_head">
-							<img src="https://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/1024/Ethereum-ETH-icon.png" alt="bitcoin" />
-							<div>
-								<h2>ETH/BUSD</h2>
-								<p>Volume 7,03,35,229,734 BUSD</p>
-							</div>
-							<p className="color_red">1.17%</p>
-						</div>
-					</div>
-					<div className="comp_middle">
-						<h1 className="color_green">304.48 </h1>
-						<p>$304.41</p>
-					</div>
-					<div className="comp_bottom">
-						<img src={graph} alt="graph" />
-						<div>
-							<img src="https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-right-01-512.png" alt="" />
-						</div>
-					</div>
-				</div>
-
-
-
+				)
+			})}
 			</div>
 
 			{/* <div className="cover_bottom">
@@ -239,8 +198,8 @@ const CoverComp = () => {
 
 
 			<div className="bottom_line">
-				<h2>View More Markets</h2>
-				<p>Introducing Unifi Protocol DAO (UNFI) on Buynance Launchpool! Farm UNFI By Staking BNB, BUSD & ETH Tokens 11-13 More</p>
+				<h2>Coming soon</h2>
+				<p style={{textAlign:"center"}}>At the moment we only offert the top 5 crypto currencies in the markets but will soon allow for all tokens on evm and other layer two chains</p>
 			</div>
 
 		</div>

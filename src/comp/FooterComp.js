@@ -16,7 +16,7 @@ const FooterComp = () => {
 				<p>Careers</p>
 				<p>Bissiness Contact</p>
 				<p>Community</p>
-				<p>Binance Blog</p>
+				<p>Buynance Blog</p>
 				<p>Terms</p>
 				<p>Privacy</p>
 				<p>Announcements</p>
@@ -28,7 +28,7 @@ const FooterComp = () => {
 				<p>Careers</p>
 				<p>Bissiness Contact</p>
 				<p>Community</p>
-				<p>Binance Blog</p>
+				<p>Buynance Blog</p>
 				<p>Terms</p>
 				<p>Privacy</p>
 				<p>Announcements</p>
