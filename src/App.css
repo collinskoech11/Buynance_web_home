@@ -418,7 +418,8 @@
 
 
 .faq_comp {
-  margin: 4rem;
+  margin: auto;
+  padding:20px;
 }
 
 .faq_comp>h1 {
@@ -453,9 +454,8 @@
 
 .faq_grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   /* border:1px solid blue; */
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 .faq_col>h1 {
