@@ -14,7 +14,6 @@ const HeaderComp = () => {
       <div className="right_header header">
         <Login />
 
-        <h3 className="hidden">Downloads</h3>
         <h3 className="hidden">English(Kenya)</h3>
         <h3 className="hidden">KES</h3>
       </div>

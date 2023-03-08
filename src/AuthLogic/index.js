@@ -30,7 +30,7 @@ function Login() {
         {user_info.given_name}
       </button>
       <button className="yellow_button " onClick={logout_fx}>
-        Start Buying Crypto
+        Log Out
       </button>
     </>
   );
