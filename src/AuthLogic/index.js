@@ -3,21 +3,15 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 function Login() {
   const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  localStorage.clear()
   if (isAuthenticated) {
     localStorage.setItem("user", JSON.stringify(user));
   }
   if (!JSON.parse(localStorage.getItem("user"))) {
     return (
       <>
-        <button
-          className="grey_button yellow_button"
-          onClick={() => loginWithRedirect()}
-          style={{ border: "1px solid #dea30d", color: "#dea30d" }}
-        >
-          Login
-        </button>
-        <button className="yellow_button " onClick={() => loginWithRedirect()}>
-          Register
+        <button className="yellow_button" onClick={() => loginWithRedirect()} style={{color:"#000"}}>
+          Get Started
         </button>
       </>
     );
@@ -36,7 +30,7 @@ function Login() {
         {user_info.given_name}
       </button>
       <button className="yellow_button " onClick={logout_fx}>
-        Log Out
+        Start Buying Crypto
       </button>
     </>
   );

@@ -28,6 +28,7 @@ const CoverComp = () => {
 			<div className="cover_top">
 				<h1>Buy crypto conveniently via mpesa</h1>
 				<p>Join the Kenya's largest crypto exchange. Designed for Kenyans</p>
+				{}
 				<Login/>
 			</div>
 

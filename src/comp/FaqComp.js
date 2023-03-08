@@ -29,7 +29,7 @@ const FaqComp = () => {
 					
 				{data.map((item,index) => (
 
-					<div key={item.key}>
+					<div key={index} className="faq_list_item">
 						<FaqChild item={item}/>
 					</div>
 
