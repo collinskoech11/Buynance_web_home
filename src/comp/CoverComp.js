@@ -5,13 +5,13 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const CoverComp = () => {
   const [coindata, setCoinData] = useState([]);
-  const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
-  const exchangeRate = 128.6;
+  const { isAuthenticated} = useAuth0();
+  const [usdRate, setUsdRate] = useState(0)
 
-  const getData = () => {
-    axios
+  const getData = async() => {
+    await axios
       .get(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=5&page=1&sparkline=false"
+        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=5&page=1&sparkline=false", 
       )
       .then((res) => {
         const data = res.data;
@@ -22,8 +22,28 @@ const CoverComp = () => {
         console.log(err);
       });
   };
+
+  const getRate = async() => {
+    await axios
+      .get(
+        "https://currency-exchange.p.rapidapi.com/exchange?from=USD&to=KES",{
+			headers:{
+				"X-RapidAPI-Key":"854df7ec19mshe57e3948bf89596p1e5251jsn6a9b7f59aae6",
+				"X-RapidAPI-Host":"currency-exchange.p.rapidapi.com"
+			}
+		}
+      )
+      .then((res) => {
+        const dataro = res.data;
+		setUsdRate(dataro)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   useEffect(() => {
     getData();
+	getRate();
   }, []);
 
   const TradeStart = () => {
@@ -50,7 +70,7 @@ const CoverComp = () => {
       <div className="cover_middle cover_grid">
         {coindata.map((item, index) => {
           const uppercaseSymbol = item.symbol.toUpperCase();
-          const current_price = Math.ceil(item.current_price * exchangeRate);
+          const current_price = Math.ceil(item.current_price * usdRate);
           let cstate;
           if (item.market_cap_change_percentage_24h < 0) {
             cstate = "color_red";
