@@ -26,15 +26,15 @@ const BlogComp = () => {
 			<div className="blog_grid">
 
 				<div className="grid_comp">
-					<img src={news_1} alt="" />
+					<img src={news_1} alt="" style={{height:"auto"}}/>
 					<p>Buy Crypto in Kenya on Buynance</p>
 				</div>
 				<div className="grid_comp">
-					<img src={news_2} alt="" />
+					<img src={news_2} alt="" style={{height:"auto"}}/>
 					<p>What Is P2P trading ?</p>
 				</div>
 				<div className="grid_comp">
-					<img src={news_3} alt="" />
+					<img src={news_3} alt="" style={{height:"auto"}}/>
 					<p>Buy and transfer cryptocurrency via Buynance</p>
 				</div>
 
