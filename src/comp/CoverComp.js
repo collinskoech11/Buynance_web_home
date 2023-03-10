@@ -96,7 +96,7 @@ const CoverComp = () => {
                 </div>
               </div>
               <div className="comp_middle">
-                <h3>1 {uppercaseSymbol} =</h3>
+                <h3>1{uppercaseSymbol}=</h3>
                 <h1 className={`${cstate}`}>{current_price} KES</h1>
                 <div>
                   <img
