@@ -16,7 +16,6 @@ const CoverComp = () => {
       .then((res) => {
         const data = res.data;
         setCoinData(data);
-        console.log(data);
       })
       .catch((err) => {
         console.log(err);
@@ -81,7 +80,7 @@ const CoverComp = () => {
           return (
             <div className="grid_comp">
               <div className="comp_top">
-                <div style={{ width: "50%", margin: "auto" }}>
+                <div>
                   <h3>{item.name}</h3>
                 </div>
                 <div className="comp_top_head">
@@ -90,13 +89,14 @@ const CoverComp = () => {
                     <h2>{uppercaseSymbol}/KES</h2>
                     <p>Volume {item.total_volume} BUSD</p>
                   </div>
-                  <p className={`${cstate}`}>
+                  <p className={`${cstate}`} style={{textAlign:"right"}}>
+					<span style={{color:"#000"}}>price change<br/> last hour </span> <br/>
                     {item.market_cap_change_percentage_24h}%
                   </p>
                 </div>
               </div>
               <div className="comp_middle">
-                <h3>Price : </h3>
+                <h3>1 {uppercaseSymbol} =</h3>
                 <h1 className={`${cstate}`}>{current_price} KES</h1>
                 <div>
                   <img
